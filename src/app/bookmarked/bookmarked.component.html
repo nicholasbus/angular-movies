@@ -1,0 +1,14 @@
+<h2>Bookmarked Movies</h2>
+
+<!-- loop through all movies in local storage -->
+<div *ngFor="let movie of movies">
+    <nb-card>
+        <nb-card-body>
+            <h5>{{ movie.Title }}</h5>
+            <p>{{ movie.Year }}</p>
+            <img src='{{ movie.Poster }}' alt='movie poster'/>
+            <!-- remove a movie from local storage -->
+            <button nbButton status="danger" (click)='unBookmark(movie.imdbID)'>Unbookmark</button>
+        </nb-card-body>
+    </nb-card>
+</div>

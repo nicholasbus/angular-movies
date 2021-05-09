@@ -1,0 +1,20 @@
+<h2>Search For a Movie</h2>
+<form >
+    <label> Name:
+        <input nbInput type="text" placeholder="Movie Name" [formControl]='movieName'/>
+    </label>
+</form>
+
+<!-- button to search -->
+<button nbButton (click)="getMovies(movieName.value)">Search</button>
+<!-- Loop through all movies that were returned from the search -->
+<div *ngFor="let movie of movies">
+    <nb-card>
+        <nb-card-body>
+            <h5>{{ movie.Title }}</h5>
+            <p>{{ movie.Year }}</p>
+            <img src='{{ movie.Poster }}' alt='movie poster'/>
+            <button nbButton status="warning" (click)='bookmark(movie.imdbID)'>Bookmark</button>
+        </nb-card-body>
+    </nb-card>
+</div>
